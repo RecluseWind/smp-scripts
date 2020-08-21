@@ -1,4 +1,4 @@
-﻿//== code for foo_spider_monkey_panel v1.2.2 or higher ==
+//== code for foo_spider_monkey_panel v1.2.2 or higher ==
 
 window.DefinePanel('smp-cover',
     {
@@ -132,7 +132,7 @@ const Lang = {
         const definedLang = languages.map((item) => fs.GetBaseName(item));
 
         if (!Prop.Panel.Lang || !definedLang.includes(Prop.Panel.Lang)) {
-            let lang = prompt(`Please input menu language.\n"${definedLang.join('", "')}" is available.`, scriptName, 'en');
+            let lang = prompt(`请选择语言。\n可选择"${definedLang.join('", "')}"。`, scriptName, 'zh-cn');
             if (!definedLang.includes(lang))
                 lang = 'en';
             window.SetProperty('Panel.Language', Prop.Panel.Lang = lang);
@@ -142,7 +142,7 @@ const Lang = {
         const langIni = new Ini(path + Prop.Panel.Lang + '.ini', 'UTF-8');
 
         if (!defaultIni.items.get('Message') || !defaultIni.items.get('Label'))
-            throw new Error(`Faild to load default language file. (${scriptName})`);
+            throw new Error(`加载默认语言文件失败。 (${scriptName})`);
 
 
         ((def, lang) => {
